@@ -128,4 +128,11 @@ public class TutorialController {
 	    }
 
 	  }
+	 @GetMapping("/tut")
+	 public ResponseEntity<List<Tutorial>>findByIdAndTitle(@RequestParam("id")long id,@RequestParam("title")String title){
+		 List<Tutorial>tutorial = tutorialRepository.findByIdAndTitle(id,title);
+		 System.out.println("lisgt of tutorials--->"+tutorial);
+		 return new ResponseEntity<List<Tutorial>>(tutorial,HttpStatus.OK);
+	 }
+	 
 }

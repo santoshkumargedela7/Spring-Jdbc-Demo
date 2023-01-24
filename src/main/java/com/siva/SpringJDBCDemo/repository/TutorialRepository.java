@@ -20,4 +20,6 @@ public interface TutorialRepository {
 	List<Tutorial> findByTitleContaining(String title);
 
 	int deleteAll();
+
+	List<Tutorial> findByIdAndTitle(long id, String title);
 }

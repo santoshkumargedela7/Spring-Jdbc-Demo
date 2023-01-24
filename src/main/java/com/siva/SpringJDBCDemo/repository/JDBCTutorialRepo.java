@@ -70,4 +70,10 @@ public class JDBCTutorialRepo implements TutorialRepository{
 		return template.update("delete from tutorials");
 	}
 
+	@Override
+	public List<Tutorial> findByIdAndTitle(long id, String title) {
+		
+		return template.query("select * from tutorials where id =? OR title =?", BeanPropertyRowMapper.newInstance(Tutorial.class),id,title);
+	}
+
 }
